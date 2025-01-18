@@ -1,3 +1,1 @@
-""""""
-
-from . import data
+# Arquivo pode estar vazio

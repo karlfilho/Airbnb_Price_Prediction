@@ -1,4 +1,5 @@
-from data import DataLoader, DataPreprocessing
+from src.data.data_loader import DataLoader
+from src.data.data_preprocessing import DataPreprocessing
 
 # data file paths
 frontpage_path = "D:\\portfolio\\Airbnb_Price_Prediction\\src\\data\\raw\\frontpage.json"
@@ -16,7 +17,7 @@ def main():
     data_cleaner = DataPreprocessing(merged_data)
     clean_data = data_cleaner.cleaning()
 
-    print(merged_data.head())
+    print(clean_data.head())
 
 if __name__ == "__main__":
     main()

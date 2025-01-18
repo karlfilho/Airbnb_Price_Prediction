@@ -1,5 +1,5 @@
 [project]
-name = "airbnb-price-prediction"
+name = "airbnb_price_prediction"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -10,3 +10,6 @@ dependencies = [
     "numpy>=2.2.1",
     "pandas>=2.2.3",
 ]
+
+[tool.setuptools]
+packages = ["src"]
