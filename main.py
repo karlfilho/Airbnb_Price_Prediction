@@ -1,12 +1,4 @@
-from src.data.data_loader import DataLoader
-# import os
-
-# # get the base directory
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# # get the data file paths
-# frontpage_path = os.path.join(BASE_DIR, 'Airbnb_Price_Prediction', 'src', 'data', 'raw', 'frontpage.json')
-# rooms_path = os.path.join(BASE_DIR, 'Airbnb_Price_Prediction', 'src', 'data', 'raw', 'rooms.json')
+from data import DataLoader, DataPreprocessing
 
 # data file paths
 frontpage_path = "D:\\portfolio\\Airbnb_Price_Prediction\\src\\data\\raw\\frontpage.json"
@@ -20,7 +12,10 @@ def main():
 
     merged_data = data_loader.merge_data()
 
-    # printing the first 5 rows of the data
+    # Cleaning data
+    data_cleaner = DataPreprocessing(merged_data)
+    clean_data = data_cleaner.cleaning()
+
     print(merged_data.head())
 
 if __name__ == "__main__":
