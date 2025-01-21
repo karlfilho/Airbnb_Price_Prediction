@@ -17,7 +17,8 @@ def main():
     data_cleaner = DataPreprocessing(merged_data)
     clean_data = data_cleaner.cleaning()
 
-    print(clean_data.head())
+    # Preprocessing data
+    
 
 if __name__ == "__main__":
     main()

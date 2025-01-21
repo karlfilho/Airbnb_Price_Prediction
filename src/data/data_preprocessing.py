@@ -107,4 +107,22 @@ class DataPreprocessing:
         # drop the original 'amenities' column
         self.data = self.data.drop(columns=['amenities'])
 
+        # drop unnecessary columns
+        columns_to_drop = [0, 6]
+        self.data = self.data.drop(columns=columns_to_drop)
+
+        # Fill Null Values with Specific Indicators
+        self.data['rating'] = self.data['rating'].fillna(0)
+        self.data['countReviews'] = self.data['countReviews'].fillna(0)
+
+        # Create Additional Features
+        self.data['is_new'] = ((self.data['rating'] == 0) & (self.data['countReviews'] == 0)).astype(int)
+
+        # Fill remaining null values in other columns
+        for column in self.data.columns:
+            if self.data[column].dtype in ['float64', 'int64']:
+                self.data[column] = self.data[column].fillna(self.data[column].mean())
+            else:
+                self.data[column] = self.data[column].fillna(self.data[column].mode()[0])
+        
         return self.data
